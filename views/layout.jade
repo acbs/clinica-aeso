@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    title= title
+    link(rel="stylesheet", href="/bootstrap/compiler/bootstrap.css")
+
+  body
+    div(class="container")
+      if isLogged
+        div(class="masthead")
+          h3(class="text-muted") Estudo de NodeJS - CI&T
+          include partials/menu
+    block content
+    <!--isto serve comentar uma linha-->
+    if isLogged
+      include partials/footer   
+
+    script(src="/jquery/dist/jquery.js")
+    script(src="/popper.js/dist/umd/popper.min.js")
+
+    block scripts
