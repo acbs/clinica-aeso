@@ -1,3 +1,4 @@
+var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var logger = require('morgan');
@@ -6,6 +7,7 @@ var bodyParser = require('body-parser');
 var load = require('express-load');
 var mongoose = require('mongoose').set('debug', true);
 var moment = require('moment');
+var favicon = require('serve-favicon');
 
 var app = express();
 
@@ -20,14 +22,18 @@ app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'node_modules')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 load('models').then('controllers').then('routes').into(app);
 
 //isto faz com que o modulo moment fique disponivel para todo o projeto
 app.locals.moment = moment;
 
+var dbProducao = 'mongodb://admin:admin@ds255329.mlab.com:55329/aesodb',
+    dbHomologacao = 'mongodb://localhost/aesodb';
+
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://admin:admin@ds255329.mlab.com:55329/aesodb', function (err) {
+mongoose.connect(dbHomologacao, function (err) {
   if (err) {
     console.log("Erro ao conectar ao banco: " + err)
   } else {

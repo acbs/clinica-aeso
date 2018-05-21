@@ -4,28 +4,27 @@ block content
     h1 Novo Cadastro
     hr
     br
-    form(method="POST", action="/usuarios/create", role="form")
+    form#createPaciente(method="POST", action="/usuarios/create", role="form")
         .container
             .panel.panel-primary
                 .panel-heading
                     h4 Dados do Paciente
                 .panel-body       
-                    .row 
-                        .col-md-6.mb-6
-                            label(for='nome') Nome
-                            input#nome.form-control(type='text', name="nome" placeholder='Informe o nome do paciente', autofocus)
-                        .col-md-6.mb-6
-                            label(for='cpf') CPF
-                            input#cpf.form-control(type='text', name="cpf", placeholder="Informe o CPF")
-                        .col-md-6.mb-6
-                            label(for='dataNascimento') Data Nascimento
-                            input#dataNascimento.form-control(type='text', name="dataNascimento", placeholder="dd/mm/aaaa")
-                        .col-md-6.mb-6
-                            label(for='email') Email
-                            input#email.form-control(type='text', name="email", placeholder="E-mail")
-                        .col-md-6.mb-6
-                            label(for='telefone') Telefone
-                            input#telefone.form-control(type='text', name="telefone", placeholder="Telefone")
+                    .col-md-12.mb-6
+                        label(for='nome') Nome
+                        input#nome.form-control(type='text', name="nome", placeholder="Nome", autofocus)
+                    .col-md-12.mb-6
+                        label(for='cpf') CPF
+                        input#cpf.form-control(type='text', name="cpf", placeholder="Informe o CPF")
+                    .col-md-12.mb-6
+                        label(for='dataNascimento') Data Nascimento
+                        input#dataNascimento.form-control(type='text', name="dataNascimento", placeholder="dd/mm/aaaa")
+                    .col-md-12.mb-6
+                        label(for='email') Email
+                        input#email.form-control(type='text', name="email", placeholder="E-mail")
+                    .col-md-12.mb-6
+                        label(for='telefone') Telefone
+                        input#telefone.form-control(type='text', name="telefone", placeholder="(ddd + Número)")
                 .panel-footer(style='text-align: center;')
-                    input.btn.btn-primary(type='button', value='Voltar', name='voltar')
+                    input#salvar.btn.btn-primary(type='submit', value='Salvar', name='salvar')
                     a.btn.btn-primary(href='/usuarios') Voltar

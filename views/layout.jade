@@ -6,19 +6,22 @@ html
     meta(name="viewport" content="width=device-width, initial-scale=1")
     title= title
     link(rel="stylesheet", href="/bootstrap/compiler/bootstrap.css")
+    link(rel="stylesheet", href="/bootswatch/flatly/bootstrap.css")
+    link(rel="stylesheet", href="/stylesheets/paciente.css")
 
   body
     div(class="container")
-      if isLogged
-        div(class="masthead")
-          h3(class="text-muted") Estudo de NodeJS - CI&T
+      div(class="masthead")
+        h4(class="text-muted") Clínica AESO
           include partials/menu
     block content
-    <!--isto serve comentar uma linha-->
-    if isLogged
-      include partials/footer   
+    
+    include partials/footer   
 
     script(src="/jquery/dist/jquery.js")
     script(src="/popper.js/dist/umd/popper.min.js")
-
-    block scripts
+    script(src="/bootstrap/dist/js/bootstrap.min.js")
+    script(src="/javascripts/jquery.mask.js")
+    script(src="/javascripts/bootbox.min.js")
+    script(src="/javascripts/utilitarios.js")
+    script(src="/javascripts/paciente.js")
