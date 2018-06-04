@@ -33,7 +33,7 @@ var dbProducao = 'mongodb://admin:admin@ds255329.mlab.com:55329/aesodb',
     dbHomologacao = 'mongodb://localhost/aesodb';
 
 mongoose.Promise = global.Promise;
-mongoose.connect(dbProducao, function (err) {
+mongoose.connect(dbHomologacao, function (err) {
   if (err) {
     console.log("Erro ao conectar ao banco: " + err)
   } else {
