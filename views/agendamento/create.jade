@@ -32,19 +32,19 @@ block content
                     .form-group
                         .col-md-12.mb-6
                             label(for='cpf') CPF
-                            input#cpf.form-control(type='text', name="cpf", value="#{agendamento.paciente.cpf || ''}", placeholder="Informe o CPF")
+                            input#cpf.form-control(type='tel', name="cpf", value="#{agendamento.paciente.cpf || ''}", placeholder="Informe o CPF")
                     .form-group
                         .col-md-12.mb-6
                             label(for='dataNascimento') Data Nascimento
-                            input#dataNascimento.form-control(type='text', name="dataNascimento", value="#{agendamento.paciente.dataNascimento || ''}", placeholder="dd/mm/aaaa")
+                            input#dataNascimento.form-control(type='tel', name="dataNascimento", value="#{agendamento.paciente.dataNascimento || ''}", placeholder="dd/mm/aaaa")
                     .form-group
                         .col-md-12.mb-6
                             label(for='email') Email
-                            input#email.form-control(type='text', name="email", value="#{agendamento.paciente.email || ''}", placeholder="E-mail")
+                            input#email.form-control(type='email', name="email", value="#{agendamento.paciente.email || ''}", placeholder="E-mail")
                     .form-group
                         .col-md-12.mb-6
                             label(for='telefone') Telefone
-                            input#telefone.form-control(type='text', name="telefone", value="#{agendamento.paciente.telefone || ''}", placeholder="(ddd + Número)")
+                            input#telefone.form-control(type='tel', name="telefone", value="#{agendamento.paciente.telefone || ''}", placeholder="(ddd + Número)")
                 .panel-footer.text-center
                     button#nextPaciente.btn.btn-primary.nextBtn(type='button') Próximo
 
