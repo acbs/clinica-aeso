@@ -1,0 +1,31 @@
+extends ../layout
+
+block content
+    h1 Atualizar Paciente
+    hr
+    br
+    form#formPaciente(method="POST", action="/paciente/edit/#{paciente._id}", role="form")
+        .container
+            .panel.panel-primary
+                .panel-heading
+                    h4 Dados do Paciente
+                .panel-body       
+                    .row 
+                        .col-md-6.mb-6
+                            label(for='nome') Nome
+                            input#nome.form-control(type='text', name="nome", value="#{paciente.nome}", placeholder='Informe o nome do paciente', autofocus)
+                        .col-md-6.mb-6
+                            label(for='cpf') CPF
+                            input#cpf.form-control(type='text', name="cpf", value="#{paciente.cpf}", placeholder="Informe o CPF", disabled)
+                        .col-md-6.mb-6
+                            label(for='dataNascimento') Data Nascimento
+                            input#dataNascimento.form-control(type='text', name="dataNascimento", value="#{paciente.dataNascimento}", placeholder="dd/mm/aaaa")
+                        .col-md-6.mb-6
+                            label(for='email') Email
+                            input#email.form-control(type='text', name="email", value="#{paciente.email}", placeholder="E-mail")
+                        .col-md-6.mb-6
+                            label(for='telefone') Telefone
+                            input#telefone.form-control(type='text', name="telefone", value="#{paciente.telefone}", placeholder="Telefone")
+                .panel-footer.text-center
+                    input#salvar.btn.btn-success(type='submit', value='Atualizar', name='salvar')
+                    a.btn.btn-success(href='/paciente') Voltar

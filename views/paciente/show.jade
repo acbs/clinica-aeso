@@ -1,0 +1,41 @@
+extends ../layout
+
+block content
+    h1 #{dados.nome}
+    p
+    
+    b CPF: #{dados.cpf}
+    p
+
+    b Data Nascimento: #{dados.dataNascimento}
+    p
+    
+    b E-mail: #{dados.email}
+    p
+
+    b Telefone: #{dados.telefone}
+    p
+
+    b ID: #{dados._id}
+    p
+    
+    b Data: #{moment(dados.data_cad).format('DD/MM/YYYY HH:MM:ss')}
+        
+    br
+    br
+    br
+    form(method="POST",action="/paciente/delete/#{dados._id}",role="form", id="excluir-form")
+        button(type="submit", class="btn btn-danger") Excluir
+        span &nbsp; 
+        a.btn.btn-primary(href='/paciente') Voltar
+
+block scripts 
+    script(type="text/javascript").
+        $(function(){
+            $('#excluir-form').submit(function(){
+                var pergunta = confirm('Deseja realmente excluir paciente ?');
+                if(!pergunta){
+                    return false;
+                }
+            });
+        });

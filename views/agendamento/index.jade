@@ -1,0 +1,28 @@
+extends ../layout
+
+block content
+    .container
+        .panel.panel-primary
+            .panel-heading
+                h2.text-muted Agendamento
+            .panel-body 
+            if lista.length > 0
+                .table-responsive
+                    table.table
+                        thead
+                            tr
+                                th Nome Paciente:
+                                th Especialidade:
+                                th Médico:
+                                th Data:
+                        tboddy
+                            each agendamento in lista
+                                tr
+                                    td #{agendamento.data}
+                                    td #{agendamento.especialidade}
+                                    td #{agendamento.medico}
+                                    td #{agendamento.data}
+            else
+                p Nenhum registro encontrado !
+            .panel-footer.text-center
+                a.btn-lg.btn-success(href="/agendamento/create") Cadastrar

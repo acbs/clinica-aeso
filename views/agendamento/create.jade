@@ -1,0 +1,119 @@
+extends ../layout
+
+block content
+    .container
+        .stepwizard
+            .stepwizard-row.setup-panel
+                .stepwizard-step.col-xs-2
+                    a.btn.btn-success(href='#step-1', type='button')
+                        span.glyphicon.glyphicon-user
+                .stepwizard-step.col-xs-2
+                    a.btn.btn-default(href='#step-2', type='button')
+                        span.glyphicon.glyphicon-plus
+                .stepwizard-step.col-xs-3
+                    a.btn.btn-default(href='#step-3', type='button')
+                        span.glyphicon.glyphicon-list-alt
+                .stepwizard-step.col-xs-2
+                    a.btn.btn-default(href='#step-4', type='button')
+                        span.glyphicon.glyphicon-calendar
+                .stepwizard-step.col-xs-2
+                    a.btn.btn-default(href='#step-5', type='button')
+                        span.glyphicon.glyphicon-check
+
+        form#formAgd(method="POST", action="/agendamento/create", role="form")
+            #step-1.panel.panel-primary.setup-content
+                .panel-heading.align-step
+                    h4.text-muted Dados do Paciente
+                .panel-body
+                    .form-group
+                        .col-md-12.mb-6
+                            label(for='nome') Nome
+                            input#nome.form-control(type='text', name="nome", value="#{agendamento.paciente.nome || ''}", placeholder="Nome", autofocus)
+                    .form-group
+                        .col-md-12.mb-6
+                            label(for='cpf') CPF
+                            input#cpf.form-control(type='text', name="cpf", value="#{agendamento.paciente.cpf || ''}", placeholder="Informe o CPF")
+                    .form-group
+                        .col-md-12.mb-6
+                            label(for='dataNascimento') Data Nascimento
+                            input#dataNascimento.form-control(type='text', name="dataNascimento", value="#{agendamento.paciente.dataNascimento || ''}", placeholder="dd/mm/aaaa")
+                    .form-group
+                        .col-md-12.mb-6
+                            label(for='email') Email
+                            input#email.form-control(type='text', name="email", value="#{agendamento.paciente.email || ''}", placeholder="E-mail")
+                    .form-group
+                        .col-md-12.mb-6
+                            label(for='telefone') Telefone
+                            input#telefone.form-control(type='text', name="telefone", value="#{agendamento.paciente.telefone || ''}", placeholder="(ddd + Número)")
+                .panel-footer.text-center
+                    button#nextPaciente.btn.btn-primary.nextBtn(type='button') Próximo
+
+            #step-2.panel.panel-primary.setup-content
+                .panel-heading.align-step
+                    h4.text-muted Especialidade
+                .panel-body
+                    .row
+                        if especialidades.length > 0
+                            each esp in especialidades
+                                .col-md-3
+                                    .card.bg-light.mb-3.card-center.card-esp(id="#{esp.descricao}")
+                                        .card-header.text-center #{esp.descricao}                 
+                input(type='hidden', name='especialidade', id='especialidade')
+                .panel-footer.text-center
+                    button.btn.btn-primary.previousBtn(type='button') Anterior
+                    button#nextEspecialidade.btn.btn-primary.nextBtn(type='button') Próximo
+
+            #step-3.panel.panel-primary.setup-content
+                .panel-heading.align-step
+                    h4.text-muted Médico
+                .panel-body
+                    #cardMed.row
+
+                input(type='hidden', name='medico', id='medico')
+                .panel-footer.text-center
+                    button.btn.btn-primary.previousBtn(type='button') Anterior
+                    button#nextMedico.btn.btn-primary.nextBtn(type='button') Próximo                
+            
+            #step-4.panel.panel-primary.setup-content
+                .panel-heading.align-step
+                    h4.text-muted Data e Hora
+                .panel-body
+                    .row
+                        .col-md-12
+                            #datepickerAgendamento
+                            input(type='hidden', name='data', id='data')
+                                    
+                .panel-footer.text-center
+                    button.btn.btn-primary.previousBtn(type='button') Anterior
+                    button#nextDtHora.btn.btn-primary.nextBtn(type='button') Próximo
+            
+            #step-5.panel.panel-primary.setup-content
+                .panel-heading.align-step
+                    h4.text-muted Confirmação dos Dados
+                .panel-body
+                    .row
+                        .col-md-10.offset-md-2
+                            .row.pt-3
+                                .col-md-4.text-center
+                                    div#confData
+                                        h4 Data
+                                .col-md-6
+                                    table.table
+                                        tbody
+                                            tr#confNome
+                                                td Nome:
+                                            tr#confCpf
+                                                td CPF:
+                                            tr#confDataNascimento
+                                                td Data Nascimento:
+                                            tr#confEmail
+                                                td Email:
+                                            tr#confTelefone
+                                                td Telefone:
+                                            tr#confEspecialidade
+                                                td Especialidade:
+                                            tr#confMedico
+                                                td Médico:
+                .panel-footer.text-center
+                    button.btn.btn-primary.previousBtn(type='button') Anterior
+                    button#salvarAgd.btn.btn-primary.pull-right(type='submit') Confirmar

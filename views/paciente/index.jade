@@ -1,0 +1,40 @@
+extends ../layout
+
+block content
+    .container
+        .panel.panel-primary
+            .panel-heading
+                h2.text-muted Pacientes
+            .panel-body 
+            if lista.length > 0
+                .table-responsive
+                    table.table
+                        thead
+                            tr
+                                //th ID:
+                                th Nome:
+                                th CPF:
+                                th Data Nascimento:
+                                th Email:
+                                th Telefone:
+                                th Data Castrado:
+                        tboddy
+                            each paciente in lista
+                                tr
+                                    //td #{paciente._id}
+                                    td #{paciente.nome}
+                                    td #{paciente.cpf}
+                                    td #{paciente.dataNascimento}
+                                    td #{paciente.email}
+                                    td #{paciente.telefone}
+                                    td #{moment(paciente.data_cad).format('DD/MM/YYYY HH:MM:ss')}
+                                    td 
+                                        a.btn.btn-info(href="/paciente/show/#{paciente._id}")
+                                            span.glyphicon.glyphicon-search
+                                        span   
+                                        a.btn.btn-primary(href="/paciente/edit/#{paciente._id}")
+                                            span.glyphicon.glyphicon-pencil
+            else
+                p Nenhum registro encontrado !
+            .panel-footer.text-center
+                a.btn-lg.btn-success(href="/paciente/create") Cadastrar

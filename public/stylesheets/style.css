@@ -1,0 +1,47 @@
+/* Inicio ajustando a div */
+.panel-heading, .panel-body, .panel-footer {
+    margin-top: 15px;
+}
+
+.panel-footer {
+	margin-bottom: 15px;
+}
+/* Fim ajustando a div */
+
+.btn {
+	margin: 5px;
+}
+
+/* Inicio datepicker */
+.datepicker td, .datepicker th {
+	height: 35px;
+	border-radius: 0px;
+}
+
+.datepicker table > thead > tr:last-child {
+	background: #18bc9c;
+}
+
+.table-condensed {
+	width: 100%;
+}
+
+.datepicker {
+	margin: 0 auto;
+}
+
+.datepicker table > tbody > tr > td.active {
+	background-color: #2c3e50;
+}
+
+.datepicker-inline {
+	width: 270px;
+}
+
+/* Para dispositivos móveis */
+@media screen and (max-width: 768px) {
+	.datepicker-inline {
+		width: 100%;
+	}
+}
+/* Fim datepicker */
