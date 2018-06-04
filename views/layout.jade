@@ -5,23 +5,28 @@ html
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport" content="width=device-width, initial-scale=1")
     title= title
-    link(rel="stylesheet", href="/bootstrap/compiler/bootstrap.css")
-    link(rel="stylesheet", href="/bootswatch/flatly/bootstrap.css")
-    link(rel="stylesheet", href="/stylesheets/paciente.css")
+    link(rel="stylesheet", href="/bootstrap/bootswatch/flatly/bootstrap.css") 
+    link(rel="stylesheet", href="/bootstrap/bootstrap-datepicker/css/bootstrap-datepicker.css")
+    link(rel="stylesheet", href="/stylesheets/style.css")
+    link(rel="stylesheet", href="/stylesheets/form-multi-step.css")
 
   body
-    div(class="container")
-      div(class="masthead")
-        h4(class="text-muted") Clínica AESO
-          include partials/menu
+    include menu
+      div(class="container")
+        div(class="masthead") 
+          input#msg(type='hidden', value="#{msg || ''}")
+                
     block content
     
-    include partials/footer   
+    include footer   
 
     script(src="/jquery/dist/jquery.js")
     script(src="/popper.js/dist/umd/popper.min.js")
     script(src="/bootstrap/dist/js/bootstrap.min.js")
+    script(src="/bootstrap/bootstrap-datepicker/js/bootstrap-datepicker.js")
+    script(src="/bootstrap/bootstrap-datepicker/js/bootstrap-datepicker.pt-BR.min.js")
     script(src="/javascripts/jquery.mask.js")
     script(src="/javascripts/bootbox.min.js")
     script(src="/javascripts/validacoes/utilitarios.js")
     script(src="/javascripts/validacoes/paciente.js")
+    script(src="/javascripts/form-multi-step.js")
